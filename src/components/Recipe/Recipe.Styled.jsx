@@ -39,24 +39,28 @@ export const Bage = styled.span`
   border-radius: 8px;
   padding: 8px;
 
-  background-color: ${props => {
-    let color;
-    switch (props.variant) {
+  background-color: ${({ variant, isActive }) => {
+    const defaultColor = 'lightgrey';
+    //let color;
+    switch (variant) {
       case 'easy':
-        color = 'green';
-        break;
-        //return props.isActive ? 'green' : 'gray';
+        /*color = 'green';
+        break;*/
+        return isActive ? 'green' : defaultColor;
       case 'medium':
-        color = 'blue';
-        break;
-        //return props.isActive ? 'blue' : 'gray';
+        /*color = 'blue';
+        break;*/
+        return isActive ? 'blue' : defaultColor;
       case 'hard':
-        color = "red";
-        break;
-        //return props.isActive ? 'red': 'gray';
+        /*color = "red";
+        break;*/
+        return isActive ? 'red': defaultColor;
         default: 
         throw new Error('Unsuported variant props')
     }
-    return props.isActive ? color : 'lightgrey'
+    
   }};
+  color: ${props => {
+    return props.isActive ? 'white' : 'black';
+  }}
 `;
